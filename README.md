@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Teixeira Club
 
-## Getting Started
+Landing page da **Teixeira Club** — comunidade de corrida com planos por assinatura (mensal, trimestral e anual), vendidos via Kiwify e entregues por comunidade no WhatsApp.
 
-First, run the development server:
+Corra. Conecte. Evolua.
+
+## Stack
+
+- [Next.js 16](https://nextjs.org/) (App Router)
+- [React 19](https://react.dev/)
+- [Tailwind CSS 4](https://tailwindcss.com/)
+- [Framer Motion](https://www.framer.com/motion/) e [GSAP](https://gsap.com/) para animações
+- [lucide-react](https://lucide.dev/) para ícones
+
+## Rodando localmente
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Acesse http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Build de produção
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm run start
+```
 
-## Learn More
+## Configuração
 
-To learn more about Next.js, take a look at the following resources:
+Os links de checkout da Kiwify ficam centralizados em [`src/lib/checkout.ts`](src/lib/checkout.ts):
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```ts
+export const CHECKOUT = {
+  mensal: "https://pay.kiwify.com.br/...",
+  trimestral: "https://pay.kiwify.com.br/...",
+  anual: "https://pay.kiwify.com.br/...",
+};
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Redes sociais e informações de contato ficam em [`src/components/Footer.tsx`](src/components/Footer.tsx).
 
-## Deploy on Vercel
+## Deploy (Vercel)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Importe este repositório em [vercel.com/new](https://vercel.com/new).
+2. A Vercel detecta o Next.js automaticamente — nenhuma configuração extra é necessária.
+3. Clique em **Deploy**.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Nenhuma variável de ambiente é necessária.
+
+## Estrutura
+
+```
+src/
+  app/            # rotas, layout, estilos globais, favicon (icon.svg)
+  components/     # seções e componentes de UI (Hero, Navbar, Comunidade, ...)
+  lib/            # utilitários e configuração (checkout.ts)
+public/images/    # imagens do site
+```

@@ -5,20 +5,22 @@ import { FeatureCard } from "@/components/FeatureCard";
 import { ProblemSection } from "@/components/ProblemSection";
 import { ComparisonSection } from "@/components/ComparisonSection";
 import { FounderSection } from "@/components/FounderSection";
-import { Stats } from "@/components/Stats";
 import { Timeline } from "@/components/Timeline";
 import { Comunidade } from "@/components/Comunidade";
-import { Testimonials } from "@/components/Testimonials";
 import { PricingCard } from "@/components/PricingCard";
 import { FAQ } from "@/components/FAQ";
-import { MobileBar } from "@/components/MobileBar";
 import { Footer } from "@/components/Footer";
+import { Navbar } from "@/components/Navbar";
 import { Button } from "@/components/Button";
-import { Zap, Flame, Users, Trophy, Medal, Crown, ArrowRight, ShieldCheck, Smartphone, CreditCard } from "lucide-react";
+import { CHECKOUT } from "@/lib/checkout";
+import { Zap, Flame, Users, Trophy, Medal, Crown, Share2, ShieldCheck, Smartphone, CreditCard } from "lucide-react";
 
 export default function Home() {
   return (
     <>
+      <span id="top" />
+      <Navbar />
+
       {/* ===== HERO ===== */}
       <Hero />
 
@@ -43,7 +45,7 @@ export default function Home() {
       >
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           <FeatureCard
-            icon={<Zap className="w-8 h-8 text-[#FFD900]" />}
+            icon={<Users className="w-8 h-8 text-[#FFD900]" />}
             title="Comunidade"
             description="Um ambiente com pessoas que compartilham da mesma mentalidade e energia."
             delay={0}
@@ -61,7 +63,7 @@ export default function Home() {
             delay={0.2}
           />
           <FeatureCard
-            icon={<ArrowRight className="w-8 h-8 text-[#FFD900]" />}
+            icon={<Share2 className="w-8 h-8 text-[#FFD900]" />}
             title="Networking"
             description="Conexões que vão muito além do asfalto e da pista de corrida."
             delay={0.3}
@@ -77,22 +79,6 @@ export default function Home() {
         subtitle="Sozinho você tem obstáculos. Aqui você tem estrutura, comunidade e resultado."
       >
         <ComparisonSection />
-      </Section>
-
-      {/* ===== O MOVIMENTO ===== */}
-      <Section
-        id="movimento"
-        label="O MOVIMENTO"
-        title="Números que contam nossa história."
-        subtitle="Mais de 847 corredores já fazem parte — e o número cresce a cada semana."
-      >
-        <Stats
-          items={[
-            { value: 847, suffix: "+", label: "membros ativos" },
-            { value: 1000, suffix: "+", label: "km juntos" },
-            { value: 365, suffix: "", label: "dias evoluindo" },
-          ]}
-        />
       </Section>
 
       {/* ===== COMO FUNCIONA ===== */}
@@ -140,23 +126,8 @@ export default function Home() {
       </Section>
 
       {/* ===== QUEM ESTÁ POR TRÁS ===== */}
-      <Section
-        id="fundador"
-        label="QUEM ESTÁ POR TRÁS"
-        title=""
-        dark
-      >
+      <Section id="fundador" dark>
         <FounderSection />
-      </Section>
-
-      {/* ===== DEPOIMENTOS ===== */}
-      <Section
-        id="depoimentos"
-        label="DEPOIMENTOS"
-        title="Quem faz parte sente a diferença."
-        dark
-      >
-        <Testimonials />
       </Section>
 
       {/* ===== PLANOS ===== */}
@@ -179,6 +150,7 @@ export default function Home() {
               "Conteúdos exclusivos",
             ]}
             buttonText="COMEÇAR"
+            buttonHref={CHECKOUT.mensal}
             delay={0}
           />
           <PricingCard
@@ -194,6 +166,7 @@ export default function Home() {
             badge="MAIS ESCOLHIDO"
             featured
             buttonText="ENTRAR NO CLUBE"
+            buttonHref={CHECKOUT.trimestral}
             delay={0.15}
           />
           <PricingCard
@@ -208,6 +181,7 @@ export default function Home() {
             ]}
             badge="MELHOR ECONOMIA"
             buttonText="ASSINAR AGORA"
+            buttonHref={CHECKOUT.anual}
             delay={0.3}
           />
         </div>
@@ -223,7 +197,7 @@ export default function Home() {
               </div>
               <h4 className="font-heading text-lg tracking-wider mb-2">Garantia de 7 dias</h4>
               <p className="text-sm text-white/40 leading-relaxed">
-                Teste por 7 dias. Se não fizer sentido, devolvemos 100% — sem perguntas.
+                Teste por 7 dias. Se não fizer sentido, devolvemos 100%, sem perguntas.
               </p>
             </div>
             <div className="text-center">
@@ -266,7 +240,7 @@ export default function Home() {
 
         <div className="relative z-10 max-w-2xl">
           <p className="font-heading text-sm tracking-[0.3em] text-[#FFD900]/60 mb-6 uppercase">
-            +847 MEMBROS ATIVOS
+            O MOVIMENTO ESTÁ COMEÇANDO
           </p>
           <h2 className="font-heading text-4xl md:text-6xl lg:text-7xl tracking-[0.04em] text-[#FFD900] mb-4">
             TEIXEIRA CLUB
@@ -275,7 +249,7 @@ export default function Home() {
             Faça parte do movimento.
           </p>
           <p className="text-white/40 text-sm md:text-base mb-6 max-w-sm mx-auto">
-            Treinos, comunidade, desafios e conexões — tudo em um só lugar.
+            Treinos, comunidade, desafios e conexões. Tudo em um só lugar.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-6 mb-10 text-xs text-white/30 font-heading tracking-[0.2em] uppercase">
@@ -296,6 +270,7 @@ export default function Home() {
           <Button
             variant="primary"
             size="lg"
+            href="#planos"
             icon={<Zap className="w-4 h-4" />}
             className="animate-glow"
           >
@@ -308,9 +283,6 @@ export default function Home() {
 
       {/* ===== FOOTER ===== */}
       <Footer />
-
-      {/* ===== MOBILE BAR ===== */}
-      <MobileBar />
     </>
   );
 }

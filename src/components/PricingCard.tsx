@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { isExternal } from "@/lib/checkout";
 
 interface PricingCardProps {
   icon: React.ReactNode;
@@ -26,8 +27,10 @@ export function PricingCard({
   badge,
   featured,
   buttonText,
+  buttonHref = "#planos",
   delay = 0,
 }: PricingCardProps) {
+  const external = isExternal(buttonHref);
   return (
     <motion.div
       initial={{ opacity: 0, y: 40 }}
@@ -35,10 +38,10 @@ export function PricingCard({
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.6, delay }}
       className={cn(
-        "relative bg-[#0d0d0d] border rounded-sm p-8 md:p-10 flex flex-col transition-all duration-500",
+        "relative bg-[#0d0d0d] border rounded-2xl p-8 md:p-10 flex flex-col transition-all duration-500",
         featured
           ? "border-[#FFD900] scale-[1.02] md:scale-105 bg-gradient-to-b from-[#FFD900]/8 to-[#0d0d0d] border-glow z-10"
-          : "border-white/[0.06] hover:border-white/20"
+          : "border-white/[0.08] hover:border-white/25"
       )}
     >
       {badge && (
@@ -48,7 +51,7 @@ export function PricingCard({
       )}
 
       <motion.div
-        className="text-2xl mb-4"
+        className="w-12 h-12 mb-4 rounded-xl bg-[#FFD900]/10 border border-[#FFD900]/20 flex items-center justify-center"
         whileHover={{ scale: 1.1 }}
       >
         {icon}
@@ -73,11 +76,13 @@ export function PricingCard({
       </ul>
 
       <motion.a
-        href="#"
+        href={buttonHref}
+        target={external ? "_blank" : undefined}
+        rel={external ? "noopener noreferrer" : undefined}
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
         className={cn(
-          "block w-full text-center font-heading tracking-[0.15em] uppercase py-3 text-sm transition-all duration-300",
+          "block w-full text-center font-heading tracking-[0.15em] uppercase py-3 text-sm rounded-lg transition-all duration-300",
           featured
             ? "bg-[#FFD900] text-black hover:bg-white"
             : "border border-[#FFD900] text-[#FFD900] hover:bg-[#FFD900]/10"

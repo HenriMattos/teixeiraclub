@@ -42,10 +42,10 @@ export function Hero() {
       {/* Background image */}
       <div className="absolute inset-0">
         <img
-          src="/images/hero-bg.jpg"
-          alt="Runners at night"
-          className="w-full h-full object-cover"
-          style={{ filter: "grayscale(80%) brightness(0.35) contrast(1.1)" }}
+          src="/images/foto-fundador (4).jpg"
+          alt="Yan Teixeira correndo"
+          className="w-full h-full object-cover object-center"
+          style={{ filter: "grayscale(70%) brightness(0.4) contrast(1.1)" }}
         />
       </div>
 
@@ -78,7 +78,7 @@ export function Hero() {
       <EnergyParticles />
 
       {/* Content */}
-      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto pt-20 pb-32">
+      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto pt-36 md:pt-40 pb-32">
         {/* Logo */}
         <div ref={logoRef} className="mb-6 md:mb-8">
           <motion.h1
@@ -138,6 +138,7 @@ export function Hero() {
           <Button
             variant="primary"
             size="lg"
+            href="#planos"
             icon={<Zap className="w-4 h-4" />}
             className="animate-glow shadow-lg"
           >

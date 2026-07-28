@@ -50,7 +50,7 @@ const problems = [
   {
     emoji: "😵",
     title: "Sem direção você se perde",
-    description: "Milhares de vídeos, dicas soltas, planilhas aleatórias. Informação demais e direção de menos — você não sabe por onde começar.",
+    description: "Milhares de vídeos, dicas soltas, planilhas aleatórias. Informação demais e direção de menos. Você não sabe por onde começar.",
   },
   {
     emoji: "📉",

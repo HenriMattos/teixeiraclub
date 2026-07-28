@@ -161,6 +161,10 @@
     @apply font-sans;
     scroll-behavior: smooth;
   }
+  section[id],
+  [id] {
+    scroll-margin-top: 80px;
+  }
 }
 
 @utility text-heading {

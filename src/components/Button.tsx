@@ -45,10 +45,13 @@ export function Button({
   ) : null;
 
   const Component = href ? motion.a : motion.button;
+  const isExternal = href?.startsWith("http");
 
   return (
     <Component
       href={href}
+      target={isExternal ? "_blank" : undefined}
+      rel={isExternal ? "noopener noreferrer" : undefined}
       className={cn("group", base, variants[variant], sizes[size], className)}
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}

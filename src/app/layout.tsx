@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Geist_Mono } from "next/font/google";
+import { Inter, Geist_Mono, Bebas_Neue } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -14,12 +14,19 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const bebasNeue = Bebas_Neue({
+  variable: "--font-bebas",
+  subsets: ["latin"],
+  weight: ["400"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  title: "Teixeira Club — Corra. Conecte. Evolua.",
+  title: "Teixeira Club | Corra. Conecte. Evolua.",
   description:
     "A comunidade para quem transforma quilômetros em histórias. Entre para um clube de corredores que buscam evolução, novas conexões e uma rotina mais ativa.",
   openGraph: {
-    title: "Teixeira Club — Corra. Conecte. Evolua.",
+    title: "Teixeira Club | Corra. Conecte. Evolua.",
     description:
       "A comunidade para quem transforma quilômetros em histórias.",
     type: "website",
@@ -35,17 +42,9 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={`${inter.variable} ${geistMono.variable} dark h-full antialiased`}
+      className={`${inter.variable} ${geistMono.variable} ${bebasNeue.variable} dark h-full antialiased`}
       suppressHydrationWarning
     >
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
-          rel="stylesheet"
-        />
-      </head>
       <body
         className="min-h-full flex flex-col bg-black text-white"
         style={{ fontFamily: "var(--font-inter), ui-sans-serif, system-ui, sans-serif" }}
