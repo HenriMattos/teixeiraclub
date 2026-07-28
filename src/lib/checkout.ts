@@ -9,6 +9,9 @@ export const CHECKOUT = {
   anual: "https://pay.kiwify.com.br/jFyYa72",
 } as const;
 
+// Link do grupo/comunidade no WhatsApp entregue na pagina de obrigado.
+export const WHATSAPP_COMMUNITY = "https://chat.whatsapp.com/GdYtptM9CjvDrfSNXdYbth";
+
 // true quando o link ja e um checkout real (abre em nova aba).
 export function isExternal(href: string): boolean {
   return href.startsWith("http");
