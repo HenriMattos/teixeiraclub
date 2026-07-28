@@ -4,9 +4,9 @@
 // ============================================================
 
 export const CHECKOUT = {
-  mensal: "https://pay.kiwify.com.br/dru33v9",
-  trimestral: "https://pay.kiwify.com.br/K23Syyl",
-  anual: "https://pay.kiwify.com.br/jFyYa72",
+  mensal: "https://pay.kiwify.com.br/rrka1Zv",
+  trimestral: "https://pay.kiwify.com.br/dYGo4Ux",
+  anual: "https://pay.kiwify.com.br/a9LRU80",
 } as const;
 
 // true quando o link ja e um checkout real (abre em nova aba).
